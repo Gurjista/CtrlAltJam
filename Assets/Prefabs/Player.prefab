@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 2517642721689452680}
   - component: {fileID: 4026350019252064494}
   - component: {fileID: 6174669884542904330}
+  - component: {fileID: 8739601914380456193}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -346,6 +347,36 @@ MonoBehaviour:
   _smallLightRadius: 3
   _largeIntensity: 1
   _largeFalloff: 0.5
+  onLightOn: {fileID: 11400000, guid: 53105cdc0a8ff1d41adc47bf80354917, type: 2}
+  _energyCost: 0.3
+--- !u!114 &8739601914380456193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135371800182238538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6eb43b255141db4cb1d2751013fb955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: bc314fd6bcee3314e8b9440e67b7bd02, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6174669884542904330}
+        m_TargetAssemblyTypeName: PlayerLight, Assembly-CSharp
+        m_MethodName: OnEnergyDepleted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4211146998750645434
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,10 +12,13 @@ public class PlayerLight : MonoBehaviour
     private float _startingInnerLightRadius;
     private float _startingIntensity;
     private float _startingFalloff;
+
     [SerializeField] private float _largeLightRadius;
     [SerializeField] private float _smallLightRadius;
     [SerializeField] private float _largeIntensity;
     [SerializeField] private float _largeFalloff;
+
+    private bool _isEnergyDepleted = false;
 
     [Header("Events")]
     public GameEvent onLightOn;
@@ -54,12 +57,6 @@ public class PlayerLight : MonoBehaviour
     public void OnLight(InputAction.CallbackContext ctx)
     {
         _isTryingLight = ctx.ReadValue<float>() > 0;
-
-        while (_isTryingLight)
-        {
-            Debug.Log("Light On");
-            onLightOn.Raise(this, _energyCost);
-        }
     }
 
     #endregion Callbacks
@@ -72,14 +69,25 @@ public class PlayerLight : MonoBehaviour
 
     private void UpdateAcender()
     {
+        if (_isEnergyDepleted)
+        {
+            _isTryingLight = false;
+        }
         var largeLightTarget = _isTryingLight ? _largeLightRadius : _startingOuterLightRadius;
         var smallLightTarget = _isTryingLight ? _smallLightRadius : _startingInnerLightRadius;
         var intensityTarget = _isTryingLight ? _largeIntensity : _startingIntensity;
         var falloffTarget = _isTryingLight ? _largeFalloff : _startingFalloff;
+        if (_isTryingLight)
+            onLightOn.Raise(this, _energyCost);
 
         _playerLight.pointLightOuterRadius = largeLightTarget;
         _playerLight.pointLightInnerRadius = smallLightTarget;
         _playerLight.intensity = intensityTarget;
         _playerLight.falloffIntensity = falloffTarget;
+    }
+
+    public void OnEnergyDepleted(Component sende, object data)
+    {
+        _isEnergyDepleted = (bool)data;
     }
 }

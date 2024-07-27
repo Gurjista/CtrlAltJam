@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnergyBar : MonoBehaviour
 {
-    // [SerializeField] private Energy energy;
     [SerializeField] private RectTransform _barRect;
 
     [SerializeField] private RectMask2D _mask;
@@ -13,23 +10,49 @@ public class EnergyBar : MonoBehaviour
     private float _maxRightMask;
     private float _initialRightMask;
 
-    private float _maxEnergy = 100;
-    //private float _currentEnergy = 100;
+    private float _maxEnergy = 200;
+    private float _currentEnergy;
+
+    [Header("Events")]
+    public GameEvent OnEnergyDepleted;
 
     private void Start()
     {
-        // x = left, w = top, y = botto, z = right
+        // x = left, w = top, y = bottom, z = right
         _maxRightMask = _barRect.rect.width - _mask.padding.x - _mask.padding.z;
         _initialRightMask = _mask.padding.z;
+        _currentEnergy = _maxEnergy;
     }
 
     public void UpdateEnergy(Component sender, object data)
     {
         if (data is float)
         {
-            Debug.LogWarning("Spending energy");
             float amount = (float)data;
-            var targetWidth = amount * _maxRightMask / _maxEnergy;
+            float targetWidth;
+            if (sender is PlayerLight)
+            {
+                _currentEnergy -= amount;
+                if (_currentEnergy < 0)
+                {
+                    _currentEnergy = 0;
+                    OnEnergyDepleted.Raise(this, true);
+                }
+            }
+            else if (sender is Pilha)
+            {
+                if (_currentEnergy == 0)
+                {
+                    OnEnergyDepleted.Raise(this, false);
+                }
+                _currentEnergy += amount;
+                if (_currentEnergy > _maxEnergy)
+                {
+                    _currentEnergy = _maxEnergy;
+                }
+            }
+            targetWidth = _currentEnergy * _maxRightMask / _maxEnergy;
+            SetEnergy(targetWidth);
         }
     }
 
