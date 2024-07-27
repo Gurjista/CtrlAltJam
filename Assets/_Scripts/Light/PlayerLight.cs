@@ -17,6 +17,11 @@ public class PlayerLight : MonoBehaviour
     [SerializeField] private float _largeIntensity;
     [SerializeField] private float _largeFalloff;
 
+    [Header("Events")]
+    public GameEvent onLightOn;
+
+    [SerializeField] private float _energyCost;
+
     private void Awake()
     {
         //_playerMovement = GetComponent<PlayerMovement>();
@@ -49,6 +54,12 @@ public class PlayerLight : MonoBehaviour
     public void OnLight(InputAction.CallbackContext ctx)
     {
         _isTryingLight = ctx.ReadValue<float>() > 0;
+
+        while (_isTryingLight)
+        {
+            Debug.Log("Light On");
+            onLightOn.Raise(this, _energyCost);
+        }
     }
 
     #endregion Callbacks
