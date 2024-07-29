@@ -348,6 +348,7 @@ MonoBehaviour:
   _largeIntensity: 1
   _largeFalloff: 0.5
   onLightOn: {fileID: 11400000, guid: 53105cdc0a8ff1d41adc47bf80354917, type: 2}
+  OnLightzone: {fileID: 11400000, guid: b392298fb3ba82848804cd0ec169939c, type: 2}
   _energyCost: 0.3
 --- !u!114 &8739601914380456193
 MonoBehaviour:

@@ -19,9 +19,13 @@ public class PlayerLight : MonoBehaviour
     [SerializeField] private float _largeFalloff;
 
     private bool _isEnergyDepleted = false;
+    private bool _inLightzone = false;
+    private bool _previousInLightzone = false;
 
     [Header("Events")]
     public GameEvent onLightOn;
+
+    public GameEvent OnLightzone;
 
     [SerializeField] private float _energyCost;
 
@@ -77,8 +81,14 @@ public class PlayerLight : MonoBehaviour
         var smallLightTarget = _isTryingLight ? _smallLightRadius : _startingInnerLightRadius;
         var intensityTarget = _isTryingLight ? _largeIntensity : _startingIntensity;
         var falloffTarget = _isTryingLight ? _largeFalloff : _startingFalloff;
+        _inLightzone = _isTryingLight ? true : false;
         if (_isTryingLight)
             onLightOn.Raise(this, _energyCost);
+        if (_inLightzone != _previousInLightzone)
+        {
+            OnLightzone.Raise(this, _inLightzone);
+            _previousInLightzone = _inLightzone;
+        }
 
         _playerLight.pointLightOuterRadius = largeLightTarget;
         _playerLight.pointLightInnerRadius = smallLightTarget;

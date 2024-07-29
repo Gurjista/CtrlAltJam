@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3310091023997249453}
   - component: {fileID: 895557748544557252}
+  - component: {fileID: 3533118519023599120}
+  - component: {fileID: 6388551027075664768}
   m_Layer: 0
   m_Name: Spawnpoint
   m_TagString: Untagged
@@ -85,6 +87,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &3533118519023599120
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004273023495210010}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.07}
+  serializedVersion: 2
+  m_Radius: 0.7584394
+--- !u!114 &6388551027075664768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004273023495210010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06367c30a81bfa541990a8d55b8ce22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLightzoneEnter: {fileID: 11400000, guid: b392298fb3ba82848804cd0ec169939c, type: 2}
 --- !u!1 &6202996511997300950
 GameObject:
   m_ObjectHideFlags: 0

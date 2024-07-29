@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8874435703255205432}
   - component: {fileID: 6261993926548839744}
   - component: {fileID: 4659831878285685132}
+  - component: {fileID: 4638611451209503503}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -64,6 +65,34 @@ MonoBehaviour:
       - m_Target: {fileID: 6261993926548839744}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: OnLevelMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4638611451209503503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597220853605383493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6eb43b255141db4cb1d2751013fb955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: b392298fb3ba82848804cd0ec169939c, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6261993926548839744}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: OnLightzone
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

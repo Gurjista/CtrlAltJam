@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7650550686674529433}
   - component: {fileID: 852469795362383994}
   - component: {fileID: 3300590245758096275}
+  - component: {fileID: 7928607723662889673}
+  - component: {fileID: 444145765562934275}
   m_Layer: 0
   m_Name: Endzone
   m_TagString: Untagged
@@ -146,6 +148,54 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4078922, y: 1.5135357}
   m_EdgeRadius: 0
+--- !u!58 &7928607723662889673
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883067260871369768}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.07}
+  serializedVersion: 2
+  m_Radius: 0.7584394
+--- !u!114 &444145765562934275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883067260871369768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06367c30a81bfa541990a8d55b8ce22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLightzoneEnter: {fileID: 11400000, guid: b392298fb3ba82848804cd0ec169939c, type: 2}
 --- !u!1 &8384056177754230949
 GameObject:
   m_ObjectHideFlags: 0
